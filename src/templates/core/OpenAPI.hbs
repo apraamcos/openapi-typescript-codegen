@@ -17,14 +17,19 @@ export type OpenAPIConfig = {
 	ENCODE_PATH?: (path: string) => string;
 };
 
+/**
+ * server will indicate base of the API including subdomain, e.g https://aaa.ptst.bbb.com.au
+ * replace ptst.bbb.com.au with correct domain based on env
+ */
+
 export const OpenAPI: OpenAPIConfig = {
 	BASE: '{{{server}}}',
 	VERSION: '{{{version}}}',
 	WITH_CREDENTIALS: false,
 	CREDENTIALS: 'include',
 	TOKEN: undefined,
-	USERNAME: undefined,
-	PASSWORD: undefined,
-	HEADERS: undefined,
+	USERNAME: process.env.NTLM_USERNAME,
+	PASSWORD: process.env.NTLM_PASSWORD,
+	HEADERS: JSON.parse(process.env.HEADERS ?? "{}"),
 	ENCODE_PATH: undefined,
 };
