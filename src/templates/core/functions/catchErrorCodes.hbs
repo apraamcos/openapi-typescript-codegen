@@ -15,7 +15,7 @@ const catchErrorCodes = (options: ApiRequestOptions, result: ApiResult): void =>
 		throw new ApiError(options, result, error);
 	}
 
-	if (!result.ok) {
+	{{!-- if (!result.ok) {
 		throw new ApiError(options, result, 'Generic Error');
-	}
+	} --}}
 };
