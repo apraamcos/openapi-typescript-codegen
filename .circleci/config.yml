@@ -21,12 +21,12 @@ jobs:
             - run:
                   name: Build library
                   command: npm run release
-            - run:
-                  name: Run unit tests
-                  command: npm run test
-            - run:
-                  name: Run e2e tests
-                  command: npm run test:e2e
+            # - run:
+            #       name: Run unit tests
+            #       command: npm run test
+            # - run:
+            #       name: Run e2e tests
+            #       command: npm run test:e2e
             - run:
                   name: Submit to Codecov
                   command: npm run codecov
