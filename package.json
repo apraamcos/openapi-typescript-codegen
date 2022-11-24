@@ -63,6 +63,7 @@
         "commander": "^9.4.1",
         "fs-extra": "^10.1.0",
         "handlebars": "^4.7.7",
+        "httpntlm": "^1.7.6",
         "json-schema-ref-parser": "^9.0.9"
     },
     "devDependencies": {
@@ -120,7 +121,7 @@
         "typescript": "4.8.4",
         "zone.js": "0.11.8"
     },
-    "overrides" : {
+    "overrides": {
         "rollup": "3.2.3"
     }
 }
