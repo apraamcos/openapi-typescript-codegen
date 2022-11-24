@@ -17,6 +17,11 @@ export type OpenAPIConfig = {
 	ENCODE_PATH?: (path: string) => string;
 };
 
+/**
+ * server will indicate base of the API including subdomain, e.g https://aaa.ptst.bbb.com.au
+ * replace ptst.bbb.com.au with correct domain based on env
+ */
+
 export const OpenAPI: OpenAPIConfig = {
 	BASE: '{{{server}}}',
 	VERSION: '{{{version}}}',

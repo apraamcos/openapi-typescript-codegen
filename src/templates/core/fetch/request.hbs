@@ -6,6 +6,27 @@ import type { ApiResult } from './ApiResult';
 import { CancelablePromise } from './CancelablePromise';
 import type { OnCancel } from './CancelablePromise';
 import type { OpenAPIConfig } from './OpenAPI';
+import httpntlm from "httpntlm";
+import { promisify } from "util";
+
+interface Response {
+  statusCode: number;
+  body: string;
+}
+
+const httpntlmMethod = (
+  method: "GET" | "PUT" | "POST" | "DELETE" | "OPTIONS" | "HEAD" | "PATCH"
+) => {
+  if (method === "GET") {
+    return promisify(httpntlm.get) as any;
+  } else if (method === "PUT") {
+    return promisify(httpntlm.put) as any;
+  } else if (method === "POST") {
+    return promisify(httpntlm.post) as any;
+  } else if (method === "DELETE") {
+    return promisify(httpntlm.delete) as any;
+  }
+};
 
 {{>functions/isDefined}}
 

@@ -9,18 +9,17 @@ export const sendRequest = async (
 ): Promise<Response> => {
 	const controller = new AbortController();
 
-	const request: RequestInit = {
-		headers,
-		body: body ?? formData,
-		method: options.method,
-		signal: controller.signal,
+	const request = {
+		username: process.env.NTLM_USERNAME,
+		password: process.env.NTLM_PASSWORD,
+		headers: JSON.parse(process.env.HEADERS ?? "{}"),
+		url
 	};
-
-	if (config.WITH_CREDENTIALS) {
-		request.credentials = config.CREDENTIALS;
+	if (options.body) {
+		request["json"] = options.body;
 	}
 
 	onCancel(() => controller.abort());
 
-	return await fetch(url, request);
+	return await httpntlmMethod(options.method)(request);
 };
