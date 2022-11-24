@@ -6,7 +6,7 @@ export const sendRequest = async (
 	formData: FormData | undefined,
 	headers: Headers,
 	onCancel: OnCancel
-): Promise<Response> => {
+): Promise<IResponse> => {
 	const controller = new AbortController();
 
 	const request = {
