@@ -4,7 +4,7 @@
         "target": "es2019",
         "module": "commonjs",
         "moduleResolution": "node",
-        "lib": ["...", "es2019", "dom"],
+        "lib": ["esnext", "es2019", "dom"],
         "types": ["jest", "node"],
         "declaration": false,
         "declarationMap": false,
