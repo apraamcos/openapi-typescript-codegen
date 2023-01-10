@@ -95,7 +95,7 @@ export const request = <T>(config: OpenAPIConfig, options: ApiRequestOptions): C
 				const result: ApiResult = {
 					url,
 					ok: response.ok,
-					status: response.status,
+					status: response.statusCode,
 					statusText: response.statusText,
 					body: responseBody,
 				};
