@@ -1,6 +1,6 @@
 {
     "name": "@apraamcos/openapi-typescript-codegen",
-    "version": "0.24.7",
+    "version": "0.25.0",
     "description": "Library that generates Typescript clients based on the OpenAPI specification.",
     "homepage": "https://github.com/ferdikoomen/openapi-typescript-codegen",
     "repository": {
