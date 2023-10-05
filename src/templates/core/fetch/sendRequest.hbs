@@ -13,11 +13,9 @@ export const sendRequest = async (
 		username: process.env.NTLM_USERNAME,
 		password: process.env.NTLM_PASSWORD,
 		headers: JSON.parse(process.env.HEADERS ?? "{}"),
-		url
+		url,
+		...(options.body && {json: options.body})
 	};
-	if (options.body) {
-		request["json"] = options.body;
-	}
 
 	onCancel(() => controller.abort());
 
