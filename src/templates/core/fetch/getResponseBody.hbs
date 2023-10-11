@@ -6,7 +6,9 @@ interface IResponse extends Response {
 
 const getResponseBody = async (response: IResponse): Promise<any> => {
 	if (response.statusCode !== 204) {
-		const contentType = response.headers.get("content-type");
+		const contentType =  response.headers instanceof Headers
+			? response.headers.get("content-type")
+			: response.headers["content-type"];
 		if (contentType) {
 			const jsonTypes = ['application/json', 'application/problem+json']
 			const isJSON = jsonTypes.some(type => contentType.toLowerCase().startsWith(type));
